@@ -55,7 +55,7 @@ namespace APICatalogo.Controllers
         }
 
 
-        [HttpPost("{id:int}")]
+        [HttpPut("{id:int}")]
         public ActionResult Put(int id, Categoria categoria)
         {
             if (id != categoria.CategoriaId)
