@@ -36,7 +36,7 @@ namespace APICatalogo.Controllers
             {
                 return NotFound("Produto não Encontrado");
             }
-            return produto;
+            return (produto);
 
 
         }
