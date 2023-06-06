@@ -6,11 +6,11 @@ namespace APICatalogo.Models;
 
 
 [Table("Categorias")]
-public class Categorias
+public class Categoria
 {
-    public Categorias()
+    public Categoria()
     {
-        Produtos = new Collection<Produtos>();
+        Produtos = new Collection<Produto>();
     }
     [Key]
     public int CategoriaId { get; set; }
@@ -20,5 +20,5 @@ public class Categorias
     [Required]
     [MaxLength(300)]
     public string? ImagemUrl { get; set; }
-    public ICollection<Produtos>? Produtos { get; set; }
+    public ICollection<Produto>? Produtos { get; set; }
 }

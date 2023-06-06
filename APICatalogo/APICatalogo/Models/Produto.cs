@@ -5,7 +5,7 @@ namespace APICatalogo.Models;
 
 
 [Table("Produtos")]
-public class Produtos
+public class Produto
 {
     [Key]
     public int ProdutoId { get; set; }
@@ -24,5 +24,5 @@ public class Produtos
     public float Estoque { get; set; }
     public DateTime DataCadastro { get; set; }
     public int CategoriaId { get; set; }
-    public Categorias? Categoria { get; set; }
+    public Categoria? Categoria { get; set; }
 }
