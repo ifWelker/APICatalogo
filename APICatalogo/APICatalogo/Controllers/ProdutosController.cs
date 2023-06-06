@@ -2,6 +2,7 @@
 using APICatalogo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
@@ -36,6 +37,8 @@ namespace APICatalogo.Controllers
                 return NotFound("Produto não Encontrado");
             }
             return produto;
+
+
         }
         [HttpPost]
         public ActionResult Post(Produto produto)
@@ -50,6 +53,20 @@ namespace APICatalogo.Controllers
 
             return new CreatedAtRouteResult("ObterProduto",
                 new { id = produto.ProdutoId }, produto);
+        }
+
+        [HttpPost("{id:int}")]
+        public ActionResult Put(int id, Produto produto)
+        {
+            if (id != produto.ProdutoId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(produto).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(produto);
         }
     }
 }
